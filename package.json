@@ -1,15 +1,41 @@
 {
   "name": "ff24-js",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-library" : "vue-cli-service build --target lib --name ff24-js ./src/main.js",
     "lint": "vue-cli-service lint"
   },
+  "author": {
+    "name": "Fantasy245",
+    "email": "chemgio245@gmail.com"
+  },
+  "repository": "https://github.com/Fantasy24/ff24-js",
+  "bugs": "https://github.com/Fantasy24/ff24-js/issues",
+  "keywords": ["keywords", "go", "here"],
+  "license": "MIT",
+  "files": [
+    "dist/*",
+    "src/**/*.vue",
+    "src/**/*.js",
+    "src/**/*.svg"
+  ],
+  "main": ".dist/ff24-js.common.js",
   "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "core-js": "^3.17.3",
+    "vue": "^2.6.14",
+    "clipboard": "^2.0.6",
+    "clone-deep": "^4.0.1",
+    "element-ui": "^2.15.7",
+    "file-saver": "^2.0.5",
+    "js-cookie": "^3.0.1",
+    "jszip": "^3.6.0",
+    "md5": "^2.3.0",
+    "moment": "^2.29.1",
+    "vue-i18n": "^8.22.4",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -19,7 +45,8 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "axios": "^0.26.1"
   },
   "eslintConfig": {
     "root": true,
