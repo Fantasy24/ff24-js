@@ -112,64 +112,64 @@ export const EXPORT_FILE_TYPES = [
   { type: 'pdf', icon: 'pdf' }
 ]
 
-export const HELP_DESK_ROUTER = (MasterLayout) => {
-  return [
-    {
-      path: '/helpdesk/user-manual',
-      component: MasterLayout,
-      redirect: '/helpdesk/user-manual/user-manual',
-      hidden: true,
-      children: [
-        {
-          path: 'user-manual',
-          component: () => import('etc-layout/src/lib-components/layout/helpdesk/user-manual/user-manual'),
-          name: 'Hướng dẫn sử dụng'
-        }
-      ]
-    },
-    {
-      path: '/helpdesk/questions',
-      component: MasterLayout,
-      redirect: '/helpdesk/questions/questions',
-      hidden: true,
-      children: [
-        {
-          path: 'questions',
-          component: () => import('etc-layout/src/lib-components/layout/helpdesk/questions/questions'),
-          name: 'Câu hỏi thường gặp'
-        },
-        {
-          path: 'BodyDetailView',
-          component: () => import('etc-layout/src/lib-components/layout/helpdesk/questions/BodyDetailView'),
-          name: 'Chi tiết câu hỏi'
-        }
-      ]
-    },
-    {
-      path: '/helpdesk/ticket-manager',
-      component: MasterLayout,
-      redirect: '/helpdesk/ticket-manager/ticket-manager',
-      hidden: true,
-      children: [
-        {
-          path: 'ticket-manager',
-          component: () => import('etc-layout/src/lib-components/layout/helpdesk/ticket-manager/ticket-manager'),
-          name: 'Quản lý Ticket'
-        }
-      ]
-    },
-    {
-      path: '/helpdesk/search-export-request',
-      component: MasterLayout,
-      redirect: '/helpdesk/search-export-request/export-requests',
-      hidden: true,
-      children: [
-        {
-          path: 'export-requests',
-          component: () => import('etc-layout/src/lib-components/layout/helpdesk/search-export-request/export-requests'),
-          name: 'Tra cứu yêu cầu kết xuất dữ liệu'
-        }
-      ]
-    }
-  ];
-};
+// export const HELP_DESK_ROUTER = (MasterLayout) => {
+//   return [
+//     {
+//       path: '/helpdesk/user-manual',
+//       component: MasterLayout,
+//       redirect: '/helpdesk/user-manual/user-manual',
+//       hidden: true,
+//       children: [
+//         {
+//           path: 'user-manual',
+//           component: () => import('etc-layout/src/lib-components/layout/helpdesk/user-manual/user-manual'),
+//           name: 'Hướng dẫn sử dụng'
+//         }
+//       ]
+//     },
+//     {
+//       path: '/helpdesk/questions',
+//       component: MasterLayout,
+//       redirect: '/helpdesk/questions/questions',
+//       hidden: true,
+//       children: [
+//         {
+//           path: 'questions',
+//           component: () => import('etc-layout/src/lib-components/layout/helpdesk/questions/questions'),
+//           name: 'Câu hỏi thường gặp'
+//         },
+//         {
+//           path: 'BodyDetailView',
+//           component: () => import('etc-layout/src/lib-components/layout/helpdesk/questions/BodyDetailView'),
+//           name: 'Chi tiết câu hỏi'
+//         }
+//       ]
+//     },
+//     {
+//       path: '/helpdesk/ticket-manager',
+//       component: MasterLayout,
+//       redirect: '/helpdesk/ticket-manager/ticket-manager',
+//       hidden: true,
+//       children: [
+//         {
+//           path: 'ticket-manager',
+//           component: () => import('etc-layout/src/lib-components/layout/helpdesk/ticket-manager/ticket-manager'),
+//           name: 'Quản lý Ticket'
+//         }
+//       ]
+//     },
+//     {
+//       path: '/helpdesk/search-export-request',
+//       component: MasterLayout,
+//       redirect: '/helpdesk/search-export-request/export-requests',
+//       hidden: true,
+//       children: [
+//         {
+//           path: 'export-requests',
+//           component: () => import('etc-layout/src/lib-components/layout/helpdesk/search-export-request/export-requests'),
+//           name: 'Tra cứu yêu cầu kết xuất dữ liệu'
+//         }
+//       ]
+//     }
+//   ];
+// };
