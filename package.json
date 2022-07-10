@@ -1,6 +1,6 @@
 {
   "name": "ff24-js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -38,6 +38,8 @@
     "jszip": "^3.6.0",
     "md5": "^2.3.0",
     "moment": "^2.29.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.1",
     "vue": "^2.6.14",
     "vue-i18n": "^8.22.4",
     "xlsx": "^0.16.9"
