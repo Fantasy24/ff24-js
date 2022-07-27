@@ -1,5 +1,5 @@
 import {DIRECTION, PAGINATION_PARAM} from './Constant'
-import store from '@/store'
+//import store from '@/store'
 import {numberRule, requiredRule} from "./index";
 
 class KeySearchListObj {
@@ -43,7 +43,7 @@ class KeySearchListObj {
         /* Base properties*/
         this.code = ''
         this.name = ''
-        this.orgCode = store.getters.org /* Mã HQ*/
+        //this.orgCode = store.getters.org /* Mã HQ*/
         this.orgCodeTk = '' /* Mã HQ TK*/
         this.type = null
         this.barCode = true

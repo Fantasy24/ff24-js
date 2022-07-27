@@ -71,12 +71,16 @@ const mutations = {
 };
 
 const actions = {
-  login({commit}, userInfo) {
+  login({ commit }, userInfo) {
+    console.log(userInfo)
     return new Promise((resolve, reject) => {
       apiFactory.callAPI(ConstantAPI.LOGIN.SIGN_IN, userInfo).then(response => {
+        console.log(response)
         if (response.tokenType !== 'otp') {
           commit('SET_TOKEN', response.accessToken);
           setToken(response.accessToken);
+          
+          console.log("setToken success")
         }
         resolve(response);
       }).catch(error => {
@@ -90,6 +94,7 @@ const actions = {
     if (!state.token) throw new Error('getUserInfo: Token không hợp lệ')
     return new Promise((resolve, reject) => {
       apiFactory.getUserInfo(ConstantAPI.LOGIN.VALIDATE_JOSE, state.token).then(data => {
+        console.log(data)
         const {iss, uid, ufn, org, dep, pos, ema, otp, avatar, orgName, posName, depName} = data;
         commit('SET_ORG_NAME', `${org} - ${orgName}`);
         commit('SET_POS_NAME', posName);

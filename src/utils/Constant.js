@@ -2,7 +2,7 @@ export const V1 = '/v1';
 export const CATE = '/cate';
 export const CATEGORY_COMMON = '/category-common';
 export const API_GATEWAY = process.env.VUE_APP_API_GATEWAY;
-export const API_AUTH = API_GATEWAY + (process.env.VUE_APP_ENDPOINT_AUTH || CATE);
+export const API_AUTH = API_GATEWAY;  // + (process.env.VUE_APP_ENDPOINT_AUTH || CATE);
 export const API_ECCP = API_GATEWAY + process.env.VUE_APP_ENDPOINT_ECCP + V1;
 export const API_CATEGORIES_COMMON = API_AUTH + V1 + CATEGORY_COMMON;
 export const API_ECLARE_RESOURCES = API_GATEWAY + process.env.VUE_APP_API_ECLARE + '/swagger-resources'
@@ -18,7 +18,8 @@ export function checkEnvFeLib() {
 
 /*HELP DESK*/
 const ZAMAD = '/zammad/api' + V1;
-export const API_HELPDESK = API_GATEWAY.replace('/gateway', '') + ZAMAD;
+// export const API_HELPDESK = API_GATEWAY.replace('/gateway', '') + ZAMAD;
+export const API_HELPDESK = API_GATEWAY + ZAMAD;
 export const API_TOKEN_ZAMMAD = API_GATEWAY + CATE + V1;
 export const MENU_CODE_API_HELPDESK = 'chuc-nang-helpdesk';
 /*HELP DESK*/

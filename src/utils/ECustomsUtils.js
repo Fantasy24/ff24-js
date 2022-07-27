@@ -19,7 +19,7 @@ function checkIsArrayEmpty(arr) {
 export function getMenuButtonFE(appCode) {
     apiFactory.callAPI(ConstantAPI.LOGIN.GET_BUTTON_PERMISSION, {}, {
         appCode: appCode,
-        type: 5
+        type: 2
     }).then(response => {
         sessionStorage.setItem(LIST_MENU_BUTTON_FE, JSON.stringify(response));
     }).catch(response => {
@@ -131,7 +131,7 @@ export function getCapMaHq(maHq) {
 
 export function cacheCategories(token) {
     if (!getToken()) return false
-    getListCustoms(token);
+    // getListCustoms(token);
     getMenuButtonFE(process.env.VUE_APP_APP_CODE);
 }
 

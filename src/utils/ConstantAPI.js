@@ -23,11 +23,11 @@ export const ConstantTableEndPoint = {
 export const ConstantAPI = {
     LOGIN: {
         SIGN_IN: {
-            url: `${API_AUTH}/api/auth/cas/signin`,
+            url: `${API_AUTH}/api/user/signin`,
             method: POST
         },
         VALIDATE_JOSE: {
-            url: `${API_AUTH}/api/auth/cas/validate-jose`,
+            url: `${API_AUTH}/api/user/auth/validate-jose`,
             method: GET
         },
         SIGN_IN_OTP: {
@@ -35,15 +35,15 @@ export const ConstantAPI = {
             method: POST
         },
         REFRESH_TOKEN: {
-            url: `${API_AUTH}/api/auth/cas/refresh-token`,
+            url: `${API_AUTH}/api/user/refresh-token`,
             method: GET
         },
         GET_MENU_PERMISSION: {
-            url: `${API_AUTH}/api/auth/cas/menu-parent-child-for-router`,
+            url: `${API_AUTH}/api/menu/menu-parent-child-for-router`,
             method: GET
         },
         GET_BUTTON_PERMISSION: {
-            url: `${API_AUTH}/api/auth/cas/get-menu-group-by-parent-code`,
+            url: `${API_AUTH}/api/menu/get-menu-group-by-parent-code`,
             method: GET
         },
         LOGOUT: {

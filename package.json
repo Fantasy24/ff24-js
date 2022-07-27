@@ -1,11 +1,12 @@
 {
   "name": "ff24-js",
-  "version": "1.0.0",
+  "version": "1.0.19",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-library": "vue-cli-service build --target lib --name ff24-js ./src/main.js",
+    "build-library2": "vue-cli-service build --target lib --name ff24-js",
     "lint": "vue-cli-service lint"
   },
   "author": {
@@ -41,7 +42,7 @@
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
     "vue": "^2.6.14",
-    "vue-i18n": "^8.22.4",
+    "vue-i18n": "^8.27.2",
     "xlsx": "^0.16.9"
   },
   "devDependencies": {

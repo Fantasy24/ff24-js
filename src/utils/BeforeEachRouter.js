@@ -10,14 +10,19 @@ let intvRefreshToken
 
 export function refreshToken(to, next, store) {
   clearInterval(intvRefreshToken)
+  console.log(to.path)
+  console.log(getToken())
+  console.log("refreshToken")
   if (WHITE_LIST.indexOf(to.path) === -1 && getToken()) {
     intvRefreshToken = setInterval(() => {
       if (getToken()) {
         apiFactory.refreshToken(ConstantAPI.LOGIN.REFRESH_TOKEN, getToken()).then(rs => {
           setToken(rs.accessToken)
           store.commit('user/SET_TOKEN', rs.accessToken)
-        }).catch(err => {
+        }).catch(err => {      
+          console.log("refreshToken Ex")
           if (err.response && err.response.data && err.response.data.status === 401) {
+            console.log("refreshToken Exception")
             next(`/login?redirect=/dashboard`)
           }
         })

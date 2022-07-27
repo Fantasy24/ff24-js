@@ -1,4 +1,4 @@
-import variables from 'etc-layout/src/theme/lib/element-variables.css';
+import variables from 'ff24-layout/src/theme/lib/element-variables.css';
 import defaultSettings from '@/settings';
 
 const { showSettings, tagsView, fixedHeader, sidebarLogo } = defaultSettings
