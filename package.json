@@ -1,6 +1,6 @@
 {
   "name": "ff24-js",
-  "version": "1.0.19",
+  "version": "1.0.34",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",

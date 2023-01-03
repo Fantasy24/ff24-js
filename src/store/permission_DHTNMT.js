@@ -1,11 +1,10 @@
 import {asyncRoutes, constantRoutes} from '@/router/routerFactory'
 import {createComponent} from '@/permission'
 import apiFactory from '../api/apiFactory'
-import ConstantAPI from '../utils/ConstantAPI'
+import ConstantAPI from '../utils/ConstantAPI_DHTNMT'
 import MasterLayout from '@/layout/MasterLayout'
 import i18n from '@/lang'
 import store from '@/store'
-import {Base64} from 'js-base64';
 
 const state = {
     routes: [],
@@ -22,38 +21,17 @@ const mutations = {
 const actions = {
     generateRoutes({commit}) {
         return new Promise((resolve, reject) => {
-            const arrDK =[undefined, null, '']
-            // if(arrDK.indexOf(state.addRoutes) === -1 && state.addRoutes.length >0){
-            //     resolve(state.addRoutes)
-            //     return false
-            // }
-            const mnu = localStorage.getItem("mn")
-            // const smnu =Base64.decode(mnu)
-            const menu = JSON.parse(mnu);
+            apiFactory.apiGetMenuByPermission(ConstantAPI.LOGIN.GET_MENU_PERMISSION, store.getters.token, {appCode: process.env.VUE_APP_APP_CODE}).then(rs => {
+                const menu = rs
                 let routes = []
                 if (menu && menu.length) {
                     routes = addMenuToRouter(menu)
                 }
                 commit('SET_ROUTES', routes)
-
-                // sessionStorage.removeItem("mu")
-                //sessionStorage.setItem("router", '1');
-                // const sroutes = JSON.stringify(routes)
-                // const base64Routes = Base64.encode(sroutes)
-                // sessionStorage.setItem("mn",base64Routes)
                 resolve(routes)
-
-            // apiFactory.apiGetMenuByPermission(ConstantAPI.LOGIN.GET_MENU_PERMISSION, store.getters.token, {appCode: process.env.VUE_APP_APP_CODE}).then(rs => {
-            //     const menu = rs
-            //     let routes = []
-            //     if (menu && menu.length) {
-            //         routes = addMenuToRouter(menu)
-            //     }
-            //     commit('SET_ROUTES', routes)
-            //     resolve(routes)
-            // }).catch(err => {
-            //     reject(err)
-            // })
+            }).catch(err => {
+                reject(err)
+            })
         })
     }
 }

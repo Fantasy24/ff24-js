@@ -23,11 +23,11 @@ export const ConstantTableEndPoint = {
 export const ConstantAPI = {
     LOGIN: {
         SIGN_IN: {
-            url: `${API_AUTH}/payment-iam/auth/signin`,
+            url: `${API_AUTH}/api/user/signin`,
             method: POST
         },
         VALIDATE_JOSE: {
-            url: `${API_AUTH}/payment-iam/auth/validate-jose`,
+            url: `${API_AUTH}/api/user/auth/validate-jose`,
             method: GET
         },
         SIGN_IN_OTP: {
@@ -35,19 +35,19 @@ export const ConstantAPI = {
             method: POST
         },
         REFRESH_TOKEN: {
-            url: `${API_AUTH}/payment-iam/auth/refresh-token`,
+            url: `${API_AUTH}/api/user/refresh-token`,
             method: GET
         },
         GET_MENU_PERMISSION: {
-            url: `${API_AUTH}/payment-iam/auth/menu-parent-child-for-router`,
+            url: `${API_AUTH}/api/menu/menu-parent-child-for-router`,
             method: GET
         },
         GET_BUTTON_PERMISSION: {
-            url: `${API_AUTH}/payment-iam/auth/get-menu-group-by-parent-code`,
+            url: `${API_AUTH}/api/menu/get-menu-group-by-parent-code`,
             method: GET
         },
         LOGOUT: {
-            url: `${API_AUTH}/payment-iam/auth/signout`,
+            url: `${API_AUTH}/api/user/signout`,
             method: POST
         }
     },
@@ -58,30 +58,35 @@ export const ConstantAPI = {
             method: GET
         },
         SIGN_UP: {
-            url: `${API_AUTH}/api/auth/cas/signup`,
+            //url: `${API_AUTH}/api/auth/cas/signup`,
+            url: `${API_AUTH}/api/user/signup`,
             method: POST
+        },
+        VERIFY_ACCOUNT: {
+            url: `${API_AUTH}/api/user/verify`,
+            method: GET
         }
     },
 
     NOTIFY: {
         SEARCH: {
-            url: `${API_AUTH}/${V1}/com-notify/search`,
+            url: `${API_AUTH}/api/notify/search`,
             method: GET
         },
         INSERT: {
-            url: `${API_AUTH}/${V1}/com-notify/`,
+            url: `${API_AUTH}/api/notify/`,
             method: POST
         },
         DETAIL: {
-            url: `${API_AUTH}/${V1}/com-notify/`,
+            url: `${API_AUTH}/api/notify/`,
             method: GET
         },
         DELETE: {
-            url: `${API_AUTH}/${V1}/com-notify/`,
+            url: `${API_AUTH}/api/notify/`,
             method: DELETE
         },
         COUNT_UNREAD: {
-            url: `${API_AUTH}/${V1}/com-notify/count-unread-notify`,
+            url: `${API_AUTH}/api/notify/count-unread-notify`,
             method: GET
         }
     },
@@ -190,11 +195,11 @@ export const ConstantAPI = {
 
     'ql-nguoi-dung': {
         SELECT_ITEM: {
-            url: `${API_AUTH}/${V1}/user/`,
+            url: `${API_AUTH}/api/qlnd/select-item`,
             method: GET
         },
         UPDATE: {
-            url: `${API_AUTH}/${V1}/user/`,
+            url: `${API_AUTH}/api/qlnd/`,
             method: PUT
         },
         RESET_PASS: {
@@ -244,15 +249,15 @@ export const ConstantAPI = {
             method: PUT
         },
         CHANGE_PASSWORD: {
-            url: `${API_AUTH}/api/auth/cas/pw_change`,
+            url: `${API_AUTH}/api/user/change-password`,
             method: PUT
         },
         RESET_PASSWORD: {
-            url: `${API_AUTH}/api/auth/cas/pw_reset`,
+            url: `${API_AUTH}/api/user/reset-password`,
             method: PUT
         },
         GET_RESET_PASSWORD: {
-            url: `${API_AUTH}/api/auth/cas/pw_reset`,
+            url: `${API_AUTH}/api/user/reset-password`,
             method: GET
         },
         GET_CAPTCHA: {

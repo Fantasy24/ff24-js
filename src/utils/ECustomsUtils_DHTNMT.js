@@ -1,6 +1,6 @@
 import apiFactory from '../api/apiFactory';
 import {CUSTOM_LEVEL} from './Constant';
-import ConstantAPI from './ConstantAPI';
+import ConstantAPI from './ConstantAPI_DHTNMT';
 import {getToken} from "./authCookie";
 
 export const LIST_CUSTOMS = 'LIST_CUSTOMS';
@@ -27,17 +27,7 @@ export function getMenuButtonFE(appCode) {
     });
 }
 
-export function parseJwt (token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-  
-    return JSON.parse(jsonPayload);
-}
-
-function checkPermissionShowButtonBK(idFunction, idButton) {
+function checkPermissionShowButton(idFunction, idButton) {
     /* Tắt phân quyền nếu không có biến VUE_APP_BUTTON_PERMISSION*/
     if (!process.env.VUE_APP_BUTTON_PERMISSION || process.env.VUE_APP_BUTTON_PERMISSION === 'false') return true
 
@@ -58,25 +48,6 @@ function checkPermissionShowButtonBK(idFunction, idButton) {
     return !checkIsArrayEmpty(lstMenu.filter(obj => {
         return obj.menuCode === idButton;
     }));
-}
-
-function checkPermissionShowButton(idFunction, idButton) {
-    /* Tắt phân quyền nếu không có biến VUE_APP_BUTTON_PERMISSION*/
-    if (!process.env.VUE_APP_BUTTON_PERMISSION || process.env.VUE_APP_BUTTON_PERMISSION === 'false') return true
-    const arrDK =[undefined, null,""]
-    const payload = parseJwt(getToken());
-    if(arrDK.indexOf(payload) > -1 || payload.permission.length ===0){
-        return false;
-    }
-    const lstFunction = [];
-    for(const obj of payload.permission){
-        lstFunction.push(obj.functionId);
-    }
-    const lstFilter = lstFunction.filter(obj => obj === idButton);
-    if(lstFilter.length === 0){
-        return false;
-    }
-    return true;    
 }
 
 export default checkPermissionShowButton;

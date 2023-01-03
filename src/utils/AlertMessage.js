@@ -54,6 +54,10 @@ export function errAlert($this, err, duration = 4000) {
         showAlert($this, ERROR, '<strong>HỆ THỐNG ĐANG ĐƯỢC BẢO TRÌ. VUI LÒNG THỬ LẠI SAU ÍT PHÚT...</strong>', 8000, true)
         return
     }*/
+    if (err.response && err.response.status === 401) {
+        showAlert($this, ERROR, '<strong>Thông tin xác thực không đúng hoặc đã quá hạn. Vui lòng đăng nhập lại để sử dụng dịch vụ</strong>', 8000, true)
+        return false
+    }
     showAlert($this, ERROR, err.response ? err.response.data.message : '', duration)
 }
 

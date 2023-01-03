@@ -44,7 +44,7 @@ export const SPECIAL_CHAR_REGEX_VIETNAMESE = '^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕ
 /* REGEX dùng chung */
 
 /*WHITE LIST*/
-export const WHITE_LIST = ['/', '/login', '/auth-redirect', '/account-active', '/account-reset-pass'];
+export const WHITE_LIST = ['/', '/login', '/auth-redirect', '/account-active', '/account-reset-pass','/signup','/verify'];
 
 export const DATE_FORMAT = {
   YYYY_MM_DD_TIME: 'YYYY/MM/DD HH:mm:ss',
