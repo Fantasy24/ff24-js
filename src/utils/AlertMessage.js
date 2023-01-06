@@ -54,9 +54,24 @@ export function errAlert($this, err, duration = 4000) {
         showAlert($this, ERROR, '<strong>HỆ THỐNG ĐANG ĐƯỢC BẢO TRÌ. VUI LÒNG THỬ LẠI SAU ÍT PHÚT...</strong>', 8000, true)
         return
     }*/
-    if (err.response && err.response.status === 401) {
-        showAlert($this, ERROR, '<strong>Thông tin xác thực không đúng hoặc đã quá hạn. Vui lòng đăng nhập lại để sử dụng dịch vụ</strong>', 8000, true)
-        return false
+    if (err.response && (err.response.status === 401 || err.response.status === 403)) {
+        return $this.$confirm('Bạn không có quyền sử dụng chức năng này hoặc thông tin xác thực không đúng hoặc đã quá hạn. Vui lòng đăng nhập lại để sử dụng dịch vụ', 'Cảnh báo', {
+            confirmButtonText: 'Đồng ý',
+            cancelButtonText: 'Không',
+            customClass: '',
+            cancelButtonClass: '',
+            confirmButtonClass: '',
+            type: 'warning'
+        })
+            .then(async () =>{
+                await $this.$store.dispatch('user/logout')
+                await $this.$router.push(`/login?redirect=/dashboard`);
+                location.reload();
+            })
+            .catch(() => {
+                // doNothing
+            })
+        // showAlert($this, ERROR, '<strong>Thông tin xác thực không đúng hoặc đã quá hạn. Vui lòng đăng nhập lại để sử dụng dịch vụ</strong>', 8000, true)
     }
     showAlert($this, ERROR, err.response ? err.response.data.message : '', duration)
 }
